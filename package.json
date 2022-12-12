@@ -1,0 +1,29 @@
+{
+  "name": "openldr-cli",
+  "version": "1.0.0",
+  "description": "Open Laboratory Data Repository (OpenLDR) - CLI",
+  "main": "./bin/cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "openldr": "./bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmwasekaga/openldr-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fmwasekaga/openldr-cli/issues"
+  },
+  "homepage": "https://github.com/fmwasekaga/openldr-cli#readme",
+  "dependencies": {
+    "boxen": "^5.1.2",
+    "chalk": "^4.1.2",
+    "figlet": "^1.5.2",
+    "yargs": "^17.6.2"
+  }
+}
