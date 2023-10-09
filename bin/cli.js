@@ -7,8 +7,9 @@ const figlet = require('figlet');
 const fs = require('fs');
 const path = require('path');
 
+const { trimmer } = require("../lib/util");
+
 yargs
-    //choices: ['mssql', 'mysql', 'mongodb', 'postgresql', 'sqlite']
     .option("c", {alias:"connection", describe: "Connection string to database engine", type: "", demandOption: false })
     .option("d", {alias:"database", describe: "Type of database engine", type: "", demandOption: false }) 
     .option("s", {alias:"config", describe: "Configuration file", type: "", demandOption: false }) 
@@ -19,13 +20,6 @@ yargs
 const logo = chalk.yellow(figlet.textSync('OPENLDR', { horizontalLayout: 'full' }));
 
 const argv = require('yargs/yargs')(process.argv.slice(2)).argv;
-
-const trimmer = (item) =>{
-    if(item != undefined && item != null && typeof item == "string"){        
-        return item.toString().trim();
-    }
-    return null;
-}
 
 const configFile =  trimmer(argv.s) || trimmer(argv.config);
 
@@ -96,3 +90,13 @@ if(config.database && !supportedEngines.includes(config.database)){
 }
 
 //Proceed
+/*try{
+    let sql = `SELECT distinct [LabNo] FROM [DisalabData].[dbo].[REGDAT4] ${!Core.IsEmpty(where) ? where : ""}`;
+    const pool = await mssql.connect(DB_URI);
+    const list = (await pool.request().query(sql)).recordset;           
+    results = list.map((l)=>{ return l.LabNo; });
+    //pool.close();
+ }
+ catch(error){
+    console.log(error);
+ }*/

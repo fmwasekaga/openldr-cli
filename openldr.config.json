@@ -1,4 +1,4 @@
 {
-    "connection":"",
-    "database":""
+    "connection":"Server=localhost,1433;User Id=sa;Password=disalab;Encrypt=false;TrustServerCertificate=True;request timeout=180000;",
+    "database":"mssql"
 }
